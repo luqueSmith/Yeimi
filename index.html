@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Para mi amada Yeimi - Feliz Navidad</title>
+
+  <!-- Fonts (como tu proyecto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Great+Vibes&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <!-- FX -->
+  <div id="snowfall" aria-hidden="true"></div>
+  <div id="twinkle-lights" aria-hidden="true"></div>
+
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1543589077-47d816067fbf?q=80&w=2070&auto=format&fit=crop"
+          alt=""
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <div class="badge-circle" aria-hidden="true">🎄</div>
+        </div>
+
+        <h1 class="hero-title gold-text-glow">Yeimi, Mi Amor</h1>
+
+        <p class="hero-subtitle">
+          "La luz más brillante de mi Navidad eres tú"
+        </p>
+
+        <div class="timer-grid" role="group" aria-label="Cuenta regresiva">
+          <div class="timer-card">
+            <span class="timer-value" id="days">0</span>
+            <span class="timer-label">Días</span>
+          </div>
+          <div class="timer-card">
+            <span class="timer-value" id="hours">0</span>
+            <span class="timer-label">Hrs</span>
+          </div>
+          <div class="timer-card">
+            <span class="timer-value" id="minutes">0</span>
+            <span class="timer-label">Min</span>
+          </div>
+          <div class="timer-card">
+            <span class="timer-value" id="seconds">0</span>
+            <span class="timer-label">Seg</span>
+          </div>
+        </div>
+
+        <div class="phrase-wrap">
+          <p class="phrase gold-text-glow" id="phrase"></p>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#letters" aria-label="Desliza hacia abajo">
+        <span class="scroll-hint-text">DESLIZA HACIA ABAJO</span>
+        <span class="scroll-hint-arrow">↓</span>
+      </a>
+    </section>
+
+    <!-- CARTAS -->
+    <section class="section container" id="letters">
+      <header class="section-header">
+        <h2 class="section-title red">Cartas para Ti</h2>
+        <div class="section-line"></div>
+        <p class="section-subtitle">Te amo,De Smith para Yeimi</p>
+      </header>
+
+      <div class="letters-grid" id="lettersGrid"></div>
+    </section>
+
+    <!-- POEMAS -->
+    <section class="section container" id="poems">
+      <div class="poem-shell">
+        <div class="poem-card">
+          <h2 class="poem-title">Inspiración para Yeimi</h2>
+          <p class="poem-subtitle">"Escribe un tema y deja que las estrellas hablen"</p>
+
+          <div class="poem-controls">
+            <input id="themeInput" type="text" placeholder="Ej: Tus ojos, Nuestra primera cita..." />
+            <button id="generatePoemBtn">Crear Poema ✨</button>
+          </div>
+
+          <div class="poem-result hidden" id="poemResult">
+            <p class="poem-text" id="poemText"></p>
+            <div class="poem-foot">
+              <span class="poem-chip" id="poemInspiration"></span>
+            </div>
+          </div>
+
+          <p class="poem-note">
+            Nota: Solo escribes cualquier palabra y te dara un peoma referente
+            a lo que escribiste amor, Te ammo Yeimi ❤.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMORIAS -->
+    <section class="section container" id="memories">
+      <header class="section-header">
+        <h2 class="section-title green">Nuestra Historia</h2>
+        <p class="section-subtitle greenish">Momentos que guardo en el corazón</p>
+      </header>
+
+      <div class="memories-grid" id="memoriesGrid"></div>
+    </section>
+
+    <!-- REGALO -->
+    <section class="section container gift-section" id="gift">
+      <header class="section-header">
+        <span class="overline">PARA YEIMI</span>
+        <h2 class="section-title gold">Tu Sorpresa Especial</h2>
+      </header>
+
+      <div class="gift-wrap">
+        <div class="gift-warning hidden" id="giftWarning">
+          <div class="gift-warning-inner">
+            <span class="gift-warning-icon">⏳</span>
+            <div>
+              <p class="gift-warning-title">¡Aún no, mi reina Yeimi! 🌹</p>
+              <p class="gift-warning-sub" id="giftWarningSub"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Locked -->
+        <div class="gift-locked" id="giftLocked" role="button" tabindex="0" aria-label="Regalo para Yeimi">
+          <div class="gift-box">
+            <div class="gift-ribbon-v"></div>
+            <div class="gift-ribbon-h"></div>
+            <div class="gift-bow">🎁</div>
+
+            <div class="gift-center">
+              <span class="gift-to gold-text-glow">Para: Yeimi</span>
+              <p class="gift-tag">SECRETOS DE AMOR</p>
+              <div class="gift-lock" id="giftLockBadge">
+                <span>BLOQUEADO</span>
+              </div>
+            </div>
+          </div>
+          <div class="gift-glow" aria-hidden="true"></div>
+        </div>
+
+        <!-- Unlocked -->
+        <div class="gift-unlocked hidden" id="giftUnlocked">
+          <div class="gift-card">
+            <div class="gift-card-inner">
+              <div class="gift-head">
+                <h2 class="gift-big">Mi Regalo Eres Tú</h2>
+                <div class="gift-divider"></div>
+              </div>
+
+              <div class="gift-verses">
+                <p>
+                  "Yeimi, bajo este cielo de invierno y luces de colores,<br>
+                  descubrí que mi mayor fortuna son tus amores."
+                </p>
+                <p>
+                  "Eres mi paz, mi locura y mi razón de ser,<br>
+                  el mejor regalo que la vida me pudo ofrecer."
+                </p>
+              </div>
+
+              <div class="gift-action">
+                <button class="gift-accept" id="acceptLoveBtn">
+                  <span>ACEPTAR MI AMOR</span>
+                  <span class="gift-ring">💍</span>
+                </button>
+                <p class="gift-footnote">Promesa de Navidad para Yeimi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-line" aria-hidden="true"></div>
+
+      <div class="footer-inner">
+        <div class="footer-heart" aria-hidden="true">❤️</div>
+        <h2 class="footer-title">Te Amo Eternamente, Yeimi</h2>
+        <p class="footer-text">
+          "Gracias por ser mi hogar. Que esta Navidad sea el inicio de un año mágico juntos."
+        </p>
+
+        <div class="footer-meta">
+          <div class="footer-meta-row">
+            <span class="footer-meta-line"></span>
+            <span class="footer-year">2024</span>
+            <span class="footer-meta-line"></span>
+          </div>
+          <p class="footer-sign">PARA YEIMI, MI TODO</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
